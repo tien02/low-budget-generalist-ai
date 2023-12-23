@@ -21,7 +21,7 @@ Answer:
 llm = LlamaCpp(
     model_path=config.LLM_CKPT,
     temperature=0.7,
-    max_tokens=500,
+    max_tokens=5000,
     top_p=0.95,
     verbose=False,
     streaming=True,

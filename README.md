@@ -29,21 +29,21 @@ Create `ckpt` folder to store checkpoints
 ```
 mkdir ckpt
 ```
-Download the model by using `huggingface-cli` from Huggingface hub, find more at [here](https://huggingface.co/TheBloke/Llama-2-7B-GGUF)
+Download the model by using `huggingface-cli` from Huggingface hub. Find more LLaMa2-GGUF at [here](https://huggingface.co/TheBloke/Llama-2-7B-GGUF)
 ```
 huggingface-cli download TheBloke/Llama-2-7B-GGUF llama-2-7b.Q4_K_S.gguf --local-dir ./ckpt --local-dir-use-symlinks False
 ```
 
 ## Deploy the service
 
-1. Run Language Model can receive and reponse text
+1. Run LLM api which can receive and reponse text
 ```
 python3 llm.py
 ```
 
-2. Run CLIP receives image as input which supports 'blind' LLM 
+2. Run CLIP api which can receive image as input. This model supports 'blind' LLM.
 ```
-python3 api.py
+python3 clip.py
 ```
 
 3. Run Gradio web UI
