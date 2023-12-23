@@ -8,18 +8,20 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
 TEMPLATE = """You are the AI assisstant which specialized in Medical domain. 
-Your response should be in plain text and short with supportive information.
+The users will give you some questions and response have to be polite and helpful.
+Your response should include text only.
 Let's think step by step.
 Be concise.
 
 Question: {question}
 
-Answer: """
+Answer: 
+"""
 
 llm = LlamaCpp(
     model_path=config.LLM_CKPT,
     temperature=0.7,
-    max_tokens=5000,
+    max_tokens=500,
     top_p=0.95,
     verbose=False,
     streaming=True,
@@ -40,7 +42,7 @@ async def generate_response(question:str):
     try: 
         prompt = TEMPLATE.format(question=question)
 
-        for chunk in llm.stream(prompt, stop=["Question:"]):
+        for chunk in llm.stream(prompt, stop=["Question:", "Q:", "Ans:", "Answer:"]):
             yield chunk
             await asyncio.sleep(0.5)
 
