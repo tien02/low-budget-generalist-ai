@@ -4,7 +4,7 @@ A low-budget Generalist AI that allows users to ask about Medical domain, moreov
 
 [LLaMa-2-7B-GGUF](https://huggingface.co/TheBloke/Llama-2-7B-GGUF) is the heart of the assistance. This Language Model can offer beneficial responses when users inquire about illnesses, symptoms, etc. [llama-cpp-python](https://github.com/abetlen/llama-cpp-python) is a friendly interface to deploy `4-bit` quantization model that uses only `~3.8GB` of RAM.
 
-Despite LLM's strength, they appear to be "blind" to the visual data. A retrieval-base model called [BiomedCLIP-PubMedBert](https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224) helps the LLM process visual data. This uses roughly {~1GB} of RAM.
+Despite LLM's strength, they appear to be "blind" to the visual data. A retrieval-base model called [BiomedCLIP-PubMedBert](https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224) helps the LLM process visual data. This uses roughly `~1GB` of RAM.
 
 An interactive chatbot user interface (UI) is created using [Gradio](https://www.gradio.app), which enables simple interactions with users. To connect the UI with these aforcehead models, [Fast API](https://fastapi.tiangolo.com/tutorial/path-params/?h=path#path-parameters-containing-paths) is used, which uses [Streaming Response](https://fastapi.tiangolo.com/advanced/custom-response/#streamingresponse) to generate tokens sequentially like ChatGPT.
 
@@ -24,6 +24,7 @@ pip install -r requirements.txt
 ```
 
 2. Download [LLaMa2 GGUF](TheBloke/Llama-2-7B-GGUF) as Language Model
+
 Create `ckpt` folder to store checkpoints
 ```
 mkdir ckpt
